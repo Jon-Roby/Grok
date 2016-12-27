@@ -1,0 +1,55 @@
+/* Exercise 2-3
+ * Write the function htoi(s), which converts a string of hexadecimal digits (including an
+ * optional 0x or 0X) into its equivalent integer value. The allowable digits are 0 through
+ * 9, a through f, and A through F.
+ */
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <math.h>
+
+int htoi(char hex[]);
+int convert(int n, int amount);
+
+int main() {
+  // Read from right to left.
+  // accumulator value
+  // accumulator value += (16 ^ n) * amount
+  // return value
+
+  int res;
+  char hex[] = "1";
+  htoi(hex);
+}
+
+int convert(int n, int amount) {
+  return (pow(16, n)) * amount;
+}
+
+int htoi(char hex[]) {
+  enum hex_values { A = 10, B, C, D, E, F };
+  int i;
+  int ret = 0;
+
+  for (i = strlen(hex)-1; i >= 0; --i) {
+    char current_letter = hex[i];
+    if (current_letter == 'A') {
+      ret += A;
+    } else if (current_letter == 'B') {
+      ret += B;
+    } else if (current_letter == 'C') {
+      ret += C;
+    } else if (current_letter == 'D') {
+      ret += D;
+    } else if (current_letter == 'E') {
+      ret += E;
+    } else if (current_letter == 'F') {
+      ret += F;
+    } else {
+      ret += current_letter - '0';
+    }
+  }
+
+  return ret;
+}
