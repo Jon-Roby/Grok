@@ -13,6 +13,7 @@ type band struct {
   Country string
 }
 
+
 func init() {
   tpl = template.Must(template.ParseFiles("tpl2.gohtml"))
 }
